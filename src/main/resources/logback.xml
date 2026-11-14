@@ -1,0 +1,8 @@
+<configuration>
+        <root level="ERROR">
+            <encoder>
+                <pattern>%d{HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            </encoder>
+    </root>
+
+</configuration>
