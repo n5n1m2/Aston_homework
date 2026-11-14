@@ -4,7 +4,7 @@ import jakarta.validation.ConstraintViolationException;
 import ru.aston.config.HibernateUtil;
 import ru.aston.model.User;
 import ru.aston.service.UserService;
-import ru.aston.storage.UserRepositoryImpl;
+import ru.aston.storage.UserDaoImpl;
 
 import java.util.Scanner;
 
@@ -12,8 +12,7 @@ public class ConsoleApp {
 
     private final Scanner scanner = new Scanner(System.in);
     private final UserService service = new UserService(
-            new UserRepositoryImpl(),
-            HibernateUtil.getSessionFactory()
+            new UserDaoImpl(HibernateUtil.getSessionFactory())
     );
 
     public void start() {

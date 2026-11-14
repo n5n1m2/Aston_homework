@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
 
 import java.time.Instant;
 
@@ -22,9 +23,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
     @NotEmpty(message = "name don't should be empty")
+    @Length(min = 1, max = 60)
     private String name;
     @NotEmpty(message = "email cannot be blank")
     @Email(message = "enter valid email")
+    @Length(min = 1, max = 60)
     private String email;
     @NotNull(message = "age cannot be null")
     private Short age;
