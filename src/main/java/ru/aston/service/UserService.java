@@ -35,6 +35,7 @@ public class UserService {
             if (oldUser == null) {
                 throw new RuntimeException("User not found");
             }
+            user.setCreatedAt(oldUser.getCreatedAt());
             logger.info("User updated. Old user:{}\nNew user:{}", oldUser, user);
             if (!Objects.equals(user.getEmail(), oldUser.getEmail())) {
                 checkEmail(user);
